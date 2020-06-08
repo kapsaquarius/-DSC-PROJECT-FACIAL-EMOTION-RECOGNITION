@@ -89,7 +89,7 @@ x_train, x_test, y_train, y_test = train_test_split(faces, emotions, test_size =
 model.compile(loss='sparse_categorical_crossentropy',
               optimizer=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-7),
               metrics=['accuracy'])
-model.fit(x_train, y_train,epochs=100,verbose=1,)
+model.fit(x_train, y_train,epochs=15,verbose=1,)
 #-------------------------------------------------------------
 
 #-------------------------------------------------------------
