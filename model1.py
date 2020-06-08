@@ -34,7 +34,7 @@ classes = 7
 width, height = 48,48
 input_shape = (48,48,1)
 batch_size = 128
-epochs = 15
+epochs = 0
 num_features = 64
 #-------------------------------------------------------------
 FER_DATA = pd.read_csv('fer2013.csv')
@@ -80,15 +80,13 @@ model.summary()
 x_train, x_test, y_train, y_test = train_test_split(faces, emotions, test_size = 0.3, random_state = 1)
 
 model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
-model.fit(x_train, y_train,epochs=100,verbose=1,)
+model.fit(x_train, y_train,epochs=epochs,verbose=1,)
 #-------------------------------------------------------------
-'''
+
 #-------------------------------------------------------------
 #REAL-TIME VIDEO FACIAL EMOTION RECOGNITION
 #-------------------------------------------------------------
 emotion_dict = {0: "Angry", 1: "Disgust", 2: "Fear", 3: "Happy", 4: "Sad", 5: "Surprise", 6: "Neutral"}
-
-# model = load_model(MODELPATH)
 
 cap = cv2.VideoCapture(0)
 
@@ -115,4 +113,4 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 
-#-------------------------------------------------------------'''
+#-------------------------------------------------------------
